@@ -4,8 +4,4 @@ To help fight back.  Influenced by the [article by Andy Moon](https://medium.com
 
 Goal: Create a simple Heroku app to serve user's contact information for their representatives, current issues in that state/district, and a script that the user can use to call their representatives.
 
-Data sources:
-
-- https://docs.google.com/spreadsheets/d/174f0WBSVNSdcQ5_S6rWPGB3pNCsruyyM_ZRQ6QUhGmo/htmlview?usp=embed_facebook&sle=true
-- https://sunlightlabs.github.io/congress/
-  - or https://www.usa.gov/elected-officials
+[Data sources in wiki](https://github.com/cstoafer/influencR/wiki) (so we don't have to commit to repo to add data sources)

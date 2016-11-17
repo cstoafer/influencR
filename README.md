@@ -7,4 +7,5 @@ Goal: Create a simple Heroku app to serve user's contact information for their r
 Data sources:
 
 - https://docs.google.com/spreadsheets/d/174f0WBSVNSdcQ5_S6rWPGB3pNCsruyyM_ZRQ6QUhGmo/htmlview?usp=embed_facebook&sle=true
-- https://www.usa.gov/elected-officials
+- https://sunlightlabs.github.io/congress/
+  - or https://www.usa.gov/elected-officials

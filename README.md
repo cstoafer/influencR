@@ -39,4 +39,4 @@ Run the server
 python main.py
 ```
 
-Navigate to http://localhost:5000/ in your browser.
+Navigate to [localhost:5000](http://localhost:5000/) in your browser.

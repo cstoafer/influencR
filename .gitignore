@@ -4,6 +4,7 @@ data/
 # Mac stuff
 .DS_Store
 *~
+*.swp
 
 # sassy
 **/.sass-cache

@@ -23,6 +23,22 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
 
+def get_state_district_by_zipcode(zipcode):
+    return ('NY','1')
+
+def get_representative_from_zipcode(zipcode):
+    district = get_district_by_zipcode(zipcode)
+    cur = g.db.execute('SELECT first_name, last_name, phone'
+                       'FROM representatives'
+                       'WHERE state={} AND district={}'.format(state,district))
+    rep_rows = cur.fetchall()[0]
+    if len(rep_rows) == 0:
+        raise ValueError('representative not found for zipcode')
+    assert(len(rep_rows) == 1)
+    rep_row = rep_rows[0]
+    rep = dict(fname=rep_row[0], lname=rep_row[1], phone=rep_row[2])
+    return rep
+
 @app.before_request
 def before_request():
     g.db = connect_db()
@@ -36,6 +52,12 @@ def teardown_request(exception):
 @app.route('/')
 def show_homepage():
     return render_template('home.html')
+
+@app.route('/contactinfo')
+def show_contact_info():
+    zipcode='2'
+    rep = get_representative_from_zipcode(zipcode)
+    return render_template('contactinfo.html', rep=rep)
 
 
 if __name__ == '__main__':

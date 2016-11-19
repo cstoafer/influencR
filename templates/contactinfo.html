@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block contact %}
+<div class="col s12 m8 offset-m2">
+  {% if rep is not None %}
+  <h3>Representative Contact Information</h3>
+  <table class=rankings>  
+    <tr>
+        <td>{{ rep.fname }} {{rep.lname}}</td>
+      <td>{{ rep.phone }}</td>
+    </tr>
+  {% endif %}
+  </ul>  
+</div>
+{% endblock %}

@@ -27,11 +27,13 @@ def get_state_district_by_zipcode(zipcode):
     return ('NY','1')
 
 def get_representative_from_zipcode(zipcode):
-    district = get_district_by_zipcode(zipcode)
-    cur = g.db.execute('SELECT first_name, last_name, phone'
-                       'FROM representatives'
-                       'WHERE state={} AND district={}'.format(state,district))
-    rep_rows = cur.fetchall()[0]
+    state, district = get_state_district_by_zipcode(zipcode)
+    query = ('SELECT first_name, last_name, phone '
+             'FROM representatives '
+             'WHERE state = "{}" AND district = "{}";'.format(state,district))
+    cur = g.db.execute(query)
+    rep_rows = cur.fetchall()
+    print(rep_rows)
     if len(rep_rows) == 0:
         raise ValueError('representative not found for zipcode')
     assert(len(rep_rows) == 1)
@@ -49,8 +51,11 @@ def teardown_request(exception):
     if db is not None:
         db.close()
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def show_homepage():
+    if request.method == 'POST':
+        zipcode = request.form['zipcode']
+        show_contact_info()
     return render_template('home.html')
 
 @app.route('/contactinfo')

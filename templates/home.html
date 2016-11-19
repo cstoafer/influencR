@@ -10,9 +10,11 @@
       </div>
       <div class="row center">
         <div class="col s12 m4 offset-m4">
+          <form action="{{ url_for('show_homepage') }}" method=post enctype=multipart/form-data>
             <label>Zip Code: </label><br />
             <input type="text" name="zipcode"><br />
-        <a href="https://www.usa.gov/elected-officials" id="download-button" class="btn-large waves-effect waves-light orange">Get Info</a>
+            <input type="submit" value="Get Info" id="btn-submit" class="btn-large waves-effect waves-light orange">
+          </form>
         </div>
       </div>
       <br><br>
@@ -22,6 +24,7 @@
 
 
   <!--
+        <a href="https://www.usa.gov/elected-officials" id="download-button" class="btn-large waves-effect waves-light orange">Get Info</a>
   <div class="container">
     <div class="section">
 

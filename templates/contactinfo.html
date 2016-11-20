@@ -1,15 +1,9 @@
 {% extends "layout.html" %}
-{% block contact %}
-<p>There is stuff here</p>
+{% block body %}
 <div class="col s12 m8 offset-m2">
   <h3>Representative Contact Information</h3>
-  {% if rep is not none %}
-  <table class=rankings>  
-    <tr>
-        <td>{{ rep.fname }} {{rep.lname}}</td>
-      <td>{{ rep.phone }}</td>
-    </tr>
-  {% endif %}
-  </ul>  
+  <br><br>
+  <h5 class="header">Representative: {{ rep.fname }} {{rep.lname}}</h5><br>
+  <h5 class="header">Phone: {{ rep.phone }}</h5>
 </div>
 {% endblock %}

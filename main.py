@@ -52,12 +52,11 @@ def teardown_request(exception):
 
 @app.route('/', methods=['GET', 'POST'])
 def show_homepage():
-    rep = None
     if request.method == 'POST':
         zipcode = request.form['zipcode']
         rep = get_representative_from_zipcode(zipcode)
-        #return render_template('contactinfo.html', rep=rep)
-    return render_template('home.html', rep=rep)
+        return render_template('contactinfo.html', rep=rep)
+    return render_template('home.html')
 
 @app.route('/contactinfo')
 def show_contact_info():

@@ -40,3 +40,11 @@ python main.py
 ```
 
 Navigate to [localhost:5000](http://localhost:5000/) in your browser.
+
+
+## Getting Started - new with Heroku
+
+- https://realpython.com/blog/python/flask-by-example-part-1-project-setup/
+- autoenv for env and environmental variables
+- postgres install
+- heroku install

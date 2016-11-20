@@ -12,7 +12,8 @@ SECRET_KEY = 'development key'
 
 # create the application
 app = Flask(__name__)
-app.config.from_object(__name__)
+#app.config.from_object(__name__)
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 '''
 def connect_db():

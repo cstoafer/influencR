@@ -104,3 +104,18 @@
 
 
 {% endblock %}
+{% block contact %}
+<div class="col s12 m8 offset-m2">
+  {% if rep is not none %}
+  <center>
+  <h4>Representative Contact Information</h4>
+  <table class=rankings>  
+    <tr>
+      <td>{{ rep.fname }} {{rep.lname}}</td>
+      <td>{{ rep.phone }}</td>
+    </tr>
+  </center>
+  {% endif %}
+  </ul>  
+</div>
+{% endblock %}

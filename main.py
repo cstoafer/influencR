@@ -33,7 +33,6 @@ def get_representative_from_zipcode(zipcode):
              'WHERE state = "{}" AND district = "{}";'.format(state,district))
     cur = g.db.execute(query)
     rep_rows = cur.fetchall()
-    print(rep_rows)
     if len(rep_rows) == 0:
         raise ValueError('representative not found for zipcode')
     assert(len(rep_rows) == 1)
@@ -53,10 +52,12 @@ def teardown_request(exception):
 
 @app.route('/', methods=['GET', 'POST'])
 def show_homepage():
+    rep = None
     if request.method == 'POST':
         zipcode = request.form['zipcode']
-        show_contact_info()
-    return render_template('home.html')
+        rep = get_representative_from_zipcode(zipcode)
+        #return render_template('contactinfo.html', rep=rep)
+    return render_template('home.html', rep=rep)
 
 @app.route('/contactinfo')
 def show_contact_info():

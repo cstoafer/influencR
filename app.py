@@ -3,17 +3,16 @@ import os
 import sqlite3
 from flask import (Flask, request, session, g, redirect, url_for,
                    abort, render_template, flash)
+from flask.ex.sqlalchemy import SQLAlchemy
 from contextlib import closing
 
-# configuration
-#DATABASE = 'data/db.db'
-DEBUG = True
-SECRET_KEY = 'development key'
+from models import Result
 
 # create the application
 app = Flask(__name__)
-#app.config.from_object(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 '''
 def connect_db():

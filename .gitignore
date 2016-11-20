@@ -33,7 +33,4 @@ var/
 .installed.cfg
 *.egg
 
-# dotenv
-.env
-
 

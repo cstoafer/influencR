@@ -1,18 +1,22 @@
 import os
 
+#from influencR import create_app, db
 import sqlite3
 from flask import (Flask, request, session, g, redirect, url_for,
                    abort, render_template, flash)
-from flask.ex.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
+#from flask.ext.sqlalchemy import SQLAlchemy
 from contextlib import closing
 
-from models import Result
 
 # create the application
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+from models import Representative
+#app = create_app()
 
 '''
 def connect_db():

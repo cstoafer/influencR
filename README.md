@@ -13,6 +13,8 @@ a script that the user can use to call their representatives.
 
 ## Contributing - Getting Started
 
+### Basics
+
 Clone the repo
 
 ```
@@ -26,17 +28,17 @@ cd influencR
 pip install -r requirements.txt
 ```
 
-Initiate the database
-
-```
-mkdir data
-sqlite3 data/db.db < schema.sql
-```
-
 Run the server
 
 ```
-python main.py
+python manage.py runserver
 ```
 
 Navigate to [localhost:5000](http://localhost:5000/) in your browser.
+
+
+### Postgres
+
+- Plan on adding more details here, but for now install the dependecies in the 
+  first two steps of:
+    - https://realpython.com/blog/python/flask-by-example-part-1-project-setup/
